@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class FolioReader {
 
     @SuppressLint("StaticFieldLeak")
-    private static FolioReader singleton = null;
+    public static FolioReader singleton = null;
 
     public static final String EXTRA_BOOK_ID = "com.folioreader.extra.BOOK_ID";
     public static final String EXTRA_READ_LOCATOR = "com.folioreader.extra.READ_LOCATOR";
@@ -130,38 +130,34 @@ public class FolioReader {
     }
 
     public FolioReader openBook(String assetOrSdcardPath) {
-        Intent intent = getIntentFromUrl(assetOrSdcardPath, 0);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = getIntentFromUrl(FolioActivity.class, assetOrSdcardPath, 0);
         context.startActivity(intent);
         return singleton;
     }
 
     public FolioReader openBook(int rawId) {
-        Intent intent = getIntentFromUrl(null, rawId);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = getIntentFromUrl(FolioActivity.class, null, rawId);
         context.startActivity(intent);
         return singleton;
     }
 
     public FolioReader openBook(String assetOrSdcardPath, String bookId) {
-        Intent intent = getIntentFromUrl(assetOrSdcardPath, 0);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = getIntentFromUrl(FolioActivity.class, assetOrSdcardPath, 0);
         intent.putExtra(EXTRA_BOOK_ID, bookId);
         context.startActivity(intent);
         return singleton;
     }
 
     public FolioReader openBook(int rawId, String bookId) {
-        Intent intent = getIntentFromUrl(null, rawId);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = getIntentFromUrl(FolioActivity.class, null, rawId);
         intent.putExtra(EXTRA_BOOK_ID, bookId);
         context.startActivity(intent);
         return singleton;
     }
 
-    private Intent getIntentFromUrl(String assetOrSdcardPath, int rawId) {
+    public Intent getIntentFromUrl(Class<?> activityClass, String assetOrSdcardPath, int rawId) {
 
-        Intent intent = new Intent(context, FolioActivity.class);
+        Intent intent = new Intent(context, activityClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(Config.INTENT_CONFIG, config);
         intent.putExtra(Config.EXTRA_OVERRIDE_CONFIG, overrideConfig);

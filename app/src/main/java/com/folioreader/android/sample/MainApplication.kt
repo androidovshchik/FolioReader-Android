@@ -8,20 +8,30 @@ import com.folioreader.model.locators.ReadLocator
 import com.folioreader.util.AppUtil
 import com.folioreader.util.OnHighlightListener
 import com.folioreader.util.ReadLocatorListener
+import com.yandex.metrica.YandexMetrica
+import com.yandex.metrica.YandexMetricaConfig
 
 class MainApplication : Application(), OnHighlightListener, ReadLocatorListener, FolioReader.OnClosedListener {
 
     override fun onCreate() {
         super.onCreate()
+        // Создание расширенной конфигурации библиотеки.
+        val metricaConfig = YandexMetricaConfig.newConfigBuilder(getString(R.string.yandex_key)).build()
+        // Инициализация AppMetrica SDK.
+        YandexMetrica.activate(applicationContext, metricaConfig)
+        // Отслеживание активности пользователей.
+        YandexMetrica.enableActivityAutoTracking(this)
+        if (!BuildConfig.DEBUG) {
+            //MobileAds.initialize(applicationContext, getString(R.string.ads_app))
+        }
         val folioReader = FolioReader.get()
         val readLocator = getLastReadLocator()
-        var config = AppUtil.getSavedConfig(applicationContext)
-        if (config == null)
-            config = Config()
-        config.allowedDirection = Config.AllowedDirection.VERTICAL_AND_HORIZONTAL
+        val config = AppUtil.getSavedConfig(applicationContext) ?: Config()
+        config.allowedDirection = Config.AllowedDirection.ONLY_HORIZONTAL
+        config.setThemeColorRes(R.color.colorAccent)
         folioReader.setReadLocator(readLocator)
         folioReader.setConfig(config, true)
-            .openBook("file:///android_asset/TheSilverChair.epub")
+            .openBook(applicationContext, "file:///android_asset/book.epub")
     }
 
     private fun getLastReadLocator(): ReadLocator? {
