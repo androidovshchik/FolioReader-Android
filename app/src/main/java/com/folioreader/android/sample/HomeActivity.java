@@ -48,7 +48,6 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
         folioReader = FolioReader.get()
                 .setOnHighlightListener(this)
@@ -57,7 +56,7 @@ public class HomeActivity extends AppCompatActivity
 
         getHighlightsAndSave();
 
-        findViewById(R.id.btn_raw).setOnClickListener(new View.OnClickListener() {
+        findViewById(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -71,7 +70,7 @@ public class HomeActivity extends AppCompatActivity
             }
         });
 
-        findViewById(R.id.btn_assest).setOnClickListener(new View.OnClickListener() {
+        findViewById(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

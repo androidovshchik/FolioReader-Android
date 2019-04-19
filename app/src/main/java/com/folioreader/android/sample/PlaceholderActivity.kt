@@ -15,6 +15,6 @@
  */
 package com.folioreader.android.sample
 
-import com.folioreader.ui.activity.FolioActivity
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : FolioActivity()
+class PlaceholderActivity : AppCompatActivity()
