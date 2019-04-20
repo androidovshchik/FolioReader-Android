@@ -4,7 +4,7 @@
 
 @file:Suppress("unused")
 
-package androidovshchik.epub
+package androidovshchik.epub.extensions
 
 import android.app.ActivityManager
 import android.app.Service

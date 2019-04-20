@@ -6,6 +6,8 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidovshchik.epub.extensions.openBook
+import androidovshchik.epub.extensions.processName
 import com.folioreader.Config
 import com.folioreader.FolioReader
 import com.folioreader.model.locators.ReadLocator
@@ -30,6 +32,7 @@ class MainApplication : Application(), Application.ActivityLifecycleCallbacks, R
             return
         }
         preferences = getSharedPreferences("main", Context.MODE_PRIVATE)
+        registerActivityLifecycleCallbacks(this)
         // Создание расширенной конфигурации библиотеки.
         val metricaConfig = YandexMetricaConfig.newConfigBuilder(getString(R.string.yandex_key)).build()
         // Инициализация AppMetrica SDK.
@@ -39,7 +42,6 @@ class MainApplication : Application(), Application.ActivityLifecycleCallbacks, R
         if (!BuildConfig.DEBUG) {
             MobileAds.initialize(applicationContext, getString(R.string.admob_app))
         }
-        registerActivityLifecycleCallbacks(this)
         FileUtil.FOLIO_READER_ROOT = getString(R.string.app_name)
         val epubConfig = (AppUtil.getSavedConfig(applicationContext) ?: Config()).apply {
             allowedDirection = Config.AllowedDirection.ONLY_HORIZONTAL

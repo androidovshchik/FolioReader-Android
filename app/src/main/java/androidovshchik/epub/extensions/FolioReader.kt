@@ -1,7 +1,8 @@
-package androidovshchik.epub
+package androidovshchik.epub.extensions
 
 import android.content.Context
 import android.content.Intent
+import androidovshchik.epub.MainActivity
 import com.folioreader.FolioReader
 
 fun FolioReader.openBook(context: Context, assetOrSdcardPath: String): FolioReader {
