@@ -18,8 +18,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
+            useProguard true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -62,9 +68,10 @@ dependencies {
     implementation 'com.yandex.android:mobmetricalib:3.5.3'
     // Опционально. Библиотека Play Install Referrer.
     implementation 'com.android.installreferrer:installreferrer:1.0'
+    implementation 'com.google.android.gms:play-services-ads:17.2.0'
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     implementation project(':folioreader')
-    //implementation "com.folioreader:folioreader:$versions.folioreaderSdk"
 
     implementation "com.fasterxml.jackson.core:jackson-core:$versions.jackson"
     implementation "com.fasterxml.jackson.core:jackson-annotations:$versions.jackson"

@@ -17,7 +17,7 @@ import java.io.*;
 
 public class FileUtil {
     private static final String TAG = FileUtil.class.getSimpleName();
-    private static final String FOLIO_READER_ROOT = "folioreader";
+    public static String FOLIO_READER_ROOT = "folioreader";
 
     public static String saveEpubFileAndLoadLazyBook(final Context context,
                                                      FolioActivity.EpubSourceType epubSourceType,
