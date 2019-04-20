@@ -20,8 +20,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app"/>
         <activity
-            android:name=".StartActivity"
-            android:theme="@style/AppTheme.Placeholder">
+            android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
