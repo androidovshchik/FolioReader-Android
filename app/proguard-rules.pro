@@ -6,11 +6,8 @@
 -renamesourcefileattribute SourceFile
 -repackageclasses
 
--keep class org.apache.commons.logging.** { *; }
--dontwarn org.apache.commons.logging.**
--keep class org.springframework.**
--dontwarn org.springframework.**
--keep class org.readium.r2.**
+-keep class !com.folioreader.** { *; }
+-dontwarn !com.folioreader.**,**
 
 ## New rules for EventBus 3.0.x ##
 # http://greenrobot.org/eventbus/documentation/proguard/

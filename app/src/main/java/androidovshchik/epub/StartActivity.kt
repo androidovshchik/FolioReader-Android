@@ -1,4 +1,4 @@
-package com.folioreader.android.sample
+package androidovshchik.epub
 
 import androidx.appcompat.app.AppCompatActivity
 

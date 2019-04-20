@@ -8,7 +8,7 @@ android {
     compileSdkVersion versions.androidCompileSdk
 
     defaultConfig {
-        applicationId "com.folioreader.android.sample"
+        applicationId "androidovshchik.epub"
         minSdkVersion versions.androidMinSdk
         targetSdkVersion versions.androidTargetSdk
         versionCode versions.projectVersionCode
@@ -58,12 +58,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "androidx.appcompat:appcompat:$versions.appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation "androidx.test.ext:junit:1.0.0"
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-
     // Библиотека Appmetrica SDK.
     implementation 'com.yandex.android:mobmetricalib:3.5.3'
     // Опционально. Библиотека Play Install Referrer.
