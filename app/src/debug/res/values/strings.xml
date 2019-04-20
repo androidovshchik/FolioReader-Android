@@ -1,0 +1,5 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation,TypographyDashes">
+    <string name="admob_interstitial1">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_interstitial2">ca-app-pub-3940256099942544/1033173712</string>
+</resources>

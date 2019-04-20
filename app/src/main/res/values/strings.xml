@@ -2,4 +2,8 @@
     tools:ignore="MissingTranslation,TypographyDashes">
     <string name="app_name">EPUB</string>
     <string name="yandex_key">731ba65d-cb19-4af1-9940-f277784bde47</string>
+    <string name="admob_app">ca-app-pub-0047201999227209~1667181294</string>
+    <string name="admob_interstitial1">ca-app-pub-0047201999227209/2493177800</string>
+    <string name="admob_interstitial2">ca-app-pub-0047201999227209/2635049544</string>
+    <bool name="isAdmobWorks">true</bool>
 </resources>
