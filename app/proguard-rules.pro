@@ -6,6 +6,12 @@
 -renamesourcefileattribute SourceFile
 -repackageclasses
 
+-keep class org.apache.commons.logging.** { *; }
+-dontwarn org.apache.commons.logging.**
+-keep class org.springframework.**
+-dontwarn org.springframework.**
+-keep class org.readium.r2.**
+
 ## New rules for EventBus 3.0.x ##
 # http://greenrobot.org/eventbus/documentation/proguard/
 -keepattributes *Annotation*
@@ -18,7 +24,7 @@
     <init>(java.lang.Throwable);
 }
 
-# Proguard configuration for Jackson 2.x
+# Proguard configuration for Jackson 2.x (fasterxml package instead of codehaus package)
 -keep class com.fasterxml.jackson.databind.ObjectMapper {
     public <methods>;
     protected <methods>;
@@ -41,3 +47,9 @@
 -keepclasseswithmembers class * {
     @retrofit2.http.* <methods>;
 }
+
+## Joda Time 2.3
+-dontwarn org.joda.convert.**
+-dontwarn org.joda.time.**
+-keep class org.joda.time.** { *; }
+-keep interface org.joda.time.** { *; }
