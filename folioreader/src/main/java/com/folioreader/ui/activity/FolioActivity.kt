@@ -851,8 +851,6 @@ open class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaCont
         return currentChapterIndex
     }
 
-    open fun onPageChanged(position: Int) {}
-
     private fun configFolio() {
 
         mFolioPageViewPager = findViewById(R.id.folioPageViewPager)
@@ -870,7 +868,6 @@ open class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaCont
                 )
                 mediaControllerFragment!!.setPlayButtonDrawable()
                 currentChapterIndex = position
-                onPageChanged(position)
             }
 
             override fun onPageScrollStateChanged(state: Int) {
