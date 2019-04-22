@@ -110,10 +110,9 @@ class MainActivity : FolioActivity() {
 
                 override fun onInterstitialLoaded() {
                     Timber.d("onInterstitialLoaded")
+                    isLoadingAds = false
                     if (!isFinishing) {
                         interstitialAd.show()
-                    } else {
-                        isLoadingAds = false
                     }
                 }
 
@@ -127,7 +126,6 @@ class MainActivity : FolioActivity() {
 
                 override fun onInterstitialDismissed() {
                     Timber.d("onInterstitialDismissed")
-                    isLoadingAds = false
                 }
 
                 override fun onInterstitialFailedToLoad(error: AdRequestError?) {
