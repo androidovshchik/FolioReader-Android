@@ -5,5 +5,7 @@
     <string name="admob_app">ca-app-pub-0047201999227209~1667181294</string>
     <string name="admob_interstitial1">ca-app-pub-0047201999227209/2493177800</string>
     <string name="admob_interstitial2">ca-app-pub-0047201999227209/2635049544</string>
+    <string name="yandex_interstitial1">R-M-DEMO-320x480</string>
+    <string name="yandex_interstitial2">R-M-DEMO-320x480</string>
     <bool name="isAdmobWorks">true</bool>
 </resources>

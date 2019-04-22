@@ -2,4 +2,6 @@
     tools:ignore="MissingTranslation,TypographyDashes">
     <string name="admob_interstitial1">ca-app-pub-3940256099942544/1033173712</string>
     <string name="admob_interstitial2">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="yandex_interstitial1">R-M-DEMO-320x480</string>
+    <string name="yandex_interstitial2">R-M-DEMO-320x480</string>
 </resources>

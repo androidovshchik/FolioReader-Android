@@ -7,6 +7,8 @@ import com.folioreader.ui.activity.FolioActivity
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
+import com.yandex.mobile.ads.AdRequestError
+import com.yandex.mobile.ads.InterstitialEventListener
 import timber.log.Timber
 
 class MainActivity : FolioActivity() {
@@ -48,7 +50,11 @@ class MainActivity : FolioActivity() {
                     showAdmobInterstitial(R.string.admob_interstitial2)
                 }
             } else {
-
+                if (pageCounter == 2) {
+                    showYandexInterstitial(R.string.yandex_interstitial1)
+                } else {
+                    showYandexInterstitial(R.string.yandex_interstitial2)
+                }
             }
         }
     }
@@ -90,5 +96,53 @@ class MainActivity : FolioActivity() {
             }
         }
         interstitialAd.loadAd(AdRequest.Builder().build())
+    }
+
+    private fun showYandexInterstitial(id: Int) {
+        if (isLoadingAds) {
+            return
+        }
+        isLoadingAds = true
+        val interstitialAd = com.yandex.mobile.ads.InterstitialAd(this)
+        interstitialAd.blockId = getString(id)
+        interstitialAd.interstitialEventListener =
+            object : InterstitialEventListener.SimpleInterstitialEventListener() {
+
+                override fun onInterstitialLoaded() {
+                    Timber.d("onInterstitialLoaded")
+                    if (!isFinishing) {
+                        interstitialAd.show()
+                    } else {
+                        isLoadingAds = false
+                    }
+                }
+
+                override fun onInterstitialShown() {
+                    Timber.d("onInterstitialShown")
+                }
+
+                override fun onAdLeftApplication() {
+                    Timber.d("onAdLeftApplication")
+                }
+
+                override fun onInterstitialDismissed() {
+                    Timber.d("onInterstitialDismissed")
+                    isLoadingAds = false
+                }
+
+                override fun onInterstitialFailedToLoad(error: AdRequestError?) {
+                    Timber.e("onInterstitialFailedToLoad error=${error?.code}")
+                    isLoadingAds = false
+                }
+
+                override fun onAdClosed() {
+                    Timber.d("onAdClosed")
+                }
+
+                override fun onAdOpened() {
+                    Timber.d("onAdOpened")
+                }
+            }
+        interstitialAd.loadAd(com.yandex.mobile.ads.AdRequest.Builder().build())
     }
 }
