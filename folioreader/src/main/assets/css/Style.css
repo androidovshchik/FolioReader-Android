@@ -113,10 +113,13 @@ sup {
 a { text-decoration: none; }
 pre { white-space: pre-wrap; }
 @page { margin: 0 0 !important; }
-table, ol, il { text-align: left; }
+table, ol, il { text-align: -webkit-auto; }
 h1 ,h2 ,h3 ,h4 ,h5 ,h6 {
     text-align: -webkit-auto;
     text-rendering: optimizelegibility;
+}
+p {
+    text-align: left !important;
 }
 
 /* allow breaking of words on headers and anchors as they tend to be larger font size or contain longer words */
