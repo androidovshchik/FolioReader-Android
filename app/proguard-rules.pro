@@ -8,6 +8,7 @@
 
 -keep class !com.folioreader.** { *; }
 -dontwarn !com.folioreader.**,**
+-keep class com.folioreader.ui.view.FolioSearchView { *; }
 
 ## New rules for EventBus 3.0.x ##
 # http://greenrobot.org/eventbus/documentation/proguard/

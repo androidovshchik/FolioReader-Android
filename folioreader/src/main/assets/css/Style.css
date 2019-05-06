@@ -113,7 +113,7 @@ sup {
 a { text-decoration: none; }
 pre { white-space: pre-wrap; }
 @page { margin: 0 0 !important; }
-table, ol, il { text-align: -webkit-auto; }
+table, ol, il { text-align: left; }
 h1 ,h2 ,h3 ,h4 ,h5 ,h6 {
     text-align: -webkit-auto;
     text-rendering: optimizelegibility;
@@ -208,12 +208,12 @@ html.nightMode {
 }
 
 .nightMode p, .nightMode div {
-    color: #767676 !important;
+    color: #ffffff !important;
     background-color: transparent !important;
 }
 
 .nightMode h1, .nightMode h2, .nightMode h3, .nightMode h4, .nightMode h5, .nightMode h6 {
-    color: #848484 !important;
+    color: #ffffff !important;
 }
 
 html.nightMode .highlight_yellow {background:rgba(255, 235, 107, 0.9)}
